@@ -1,0 +1,53 @@
+
+Explain basic security terms like authentication, authorization, confidentiality, integrity, SSL/TLS and
+provide examples of how you have used them.
+
+
+
+Authentication = login + password (who you are)
+Authorization = permissions (what you are allowed to do)
+
+Authentication is the mechanism whereby systems may securely identify their users.
+Authentication systems provide an answers to the questions:
+
+Who is the user?
+Is the user really who he/she represents himself to be?
+
+Authorization, by contrast, is the mechanism by which a system determines what level of access a particular
+authenticated user should have to secured resources controlled by the system. For example, a database
+management system might be designed so as to provide certain specified individuals with the ability to
+retrieve information from a database but not the ability to change data stored in the datbase, while giving
+other individuals the ability to change data. Authorization systems provide answers to the questions:
+
+Is user X authorized to access resource R?
+Is user X authorized to perform operation P?
+Is user X authorized to perform operation P on resource R?
+
+
+
+Confidentiality
+Involves a set of rules or a promise that limits access or places restrictions on certain types of
+information. In information security, confidentiality "is the property, that information is not made
+available or disclosed to unauthorized individuals, entities, or processes.
+
+Integrity
+Maintaining and assuring the accuracy and completeness of data over its entire life-cycle. This means that
+data cannot be modified in an unauthorized or undetected manner.
+
+SSL/TLS
+SSL is an Internet security protocol used by Internet browsers and Web servers to transmit sensitive
+information. SSL has become part of an overall security protocol known as Transport Layer Security (TLS).
+TLS and its predecessor SSL make significant use of certificate authorities. Once your browser requests a
+secure page and adds the "s" onto "http," the browser sends out the public key and the certificate, checking
+three things:
+1) that the certificate comes from a trusted party;
+2) that the certificate is currently valid;
+3) that the certificate has a relationship with the site from which it's coming.
+
+If you are using a secure protocol, an "s" will be added to http, and a green lock symbol will appear in
+the browser.
+
+
+http://stackoverflow.com/questions/6556522/authentication-versus-authorization
+https://en.wikipedia.org/wiki/Information_security
+http://computer.howstuffworks.com/encryption4.htm

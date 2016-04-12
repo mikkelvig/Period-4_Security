@@ -1,0 +1,64 @@
+
+Explain basic security threads like: Cross Site Scripting (XSS), SQL Injection and whether something similar
+to SQL injection is possible with NoSQL databases like MongoDB, and DOS-attacks. Explain/demonstrate
+ways to cope with these problems
+
+
+
+XSS
+Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into
+otherwise benign and trusted web sites. XSS attacks occur when an attacker uses a web application to send
+malicious code, generally in the form of a browser side script, to a different end user. Flaws that allow
+these attacks to succeed are quite widespread and occur anywhere a web application uses input from a user
+within the output it generates without validating or encoding it.
+
+An attacker can use XSS to send a malicious script to an unsuspecting user. The end user’s browser has no
+way to know that the script should not be trusted, and will execute the script. Because it thinks the script
+came from a trusted source, the malicious script can access any cookies, session tokens, or other sensitive
+information retained by the browser and used with that site. These scripts can even rewrite the content of the
+HTML page.
+
+SQL Injection
+A code injection technique, used to attack data-driven applications, in which malicious SQL statements are
+inserted into an entry field for execution (e.g. to dump the database contents to the attacker). SQL injection
+attacks allow attackers to spoof identity, tamper with existing data, cause repudiation issues such as voiding
+transactions or changing balances, allow the complete disclosure of all data on the system, destroy the data
+or make it otherwise unavailable, and become administrators of the database server.
+
+NoSQL Injection
+We no longer deal with a query language in the form of a string therefore one would think that injection
+is no longer possible... wrong! For example, assume that the username field is coming from a deserialized J
+SON object, manipulation of the above query is not only possible but inevitable. Such as, if one supplies a
+JSON document as the input to the application, an attacker will be able to perform the exact same login bypass
+that was before possible only with SQL injection.
+
+Server code: db.accounts.find({username: username, password: password});
+Client creates following json request ->
+{ "username": "admin", "password": {$gt: ""} }
+
+Result is that "Get all users with username admin and password greater than emptry String", returns all admins.
+
+
+DOS-attacks
+In computing, a denial-of-service (DoS) attack is an attempt to make a machine or network resource unavailable
+to its intended users, such as to temporarily or indefinitely interrupt or suspend services of a host connected
+to the Internet. A distributed denial-of-service (DDoS) is where the attack source is more than one, often
+thousands of, unique IP addresses. It is analogous to a group of people crowding the entry door or gate to a
+shop or business, and not letting legitimate parties enter into the shop or business, disrupting normal
+operations.
+
+Ways to cope with these problems
+Here are some measures to prevent SQL / NoSQL injection attacks, or minimize impact if it happens:
+Prepared Statements: For SQL calls, use prepared statements instead of building dynamic queries using string
+concatenation.
+Input Validation: Validate inputs to detect malicious values. For NoSQL databases, also validate input types
+against expected types
+Least Privilege: To minimize the potential damage of a successful injection attack, do not assign DBA or admin
+type access rights to your application accounts. Similarly minimize the privileges of the operating system
+account that the database process runs under.
+
+
+https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
+http://www.w3schools.com/sql/sql_injection.asp
+https://ckarande.gitbooks.io/owasp-nodegoat-tutorial/content/tutorial/a1_-_sql_and_nosql_injection.html
+https://en.wikipedia.org/wiki/Denial-of-service_attack

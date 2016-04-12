@@ -1,0 +1,26 @@
+
+Explain, at a very basic level, OAuth 2 + OpenID Connect and the problems it solves.
+
+OpenID Connect 1.0 is a simple identity layer on top of the OAuth 2.0 protocol. It allows Clients to verify
+the identity of the End-User based on the authentication performed by an Authorization Server, as well as to
+obtain basic profile information about the End-User in an interoperable and REST-like manner.
+
+OpenID Connect allows clients of all types, including Web-based, mobile, and JavaScript clients, to request
+and receive information about authenticated sessions and end-users. The specification suite is extensible,
+allowing participants to use optional features such as encryption of identity data, discovery of OpenID
+Providers, and session management, when it makes sense for them.
+
+
+OpenID Connect was developed to add secure authentication to OAuth 2.0. Large providers i.e. Google, Facebook,
+Yahoo, etc began using OAuth 2.0 as a way to authenticate users with "login with" services so users could use
+their credentials to authenticate to a variety of third-party services. Standard OAuth 2.0 cannot securely
+satisfy this requirement because of deficiencies within the protocol. OpenID Connect solves these deficiencies
+and allows providers to securely use OAuth 2.0 as an authentication framework. OAuth 2.0 was originally
+developed as an authorization framework which allows a user to grant a third party service access to their
+data stored on the provider. The scenario you described seems like exactly what OAuth 2.0 was developed to do.
+If you do not plan to offer a "login with" mechanism use OAuth 2.0.
+
+
+
+http://openid.net/connect/
+http://security.stackexchange.com/questions/94995/oauth-2-vs-openid-connect-to-secure-api
